@@ -5,25 +5,33 @@ export const CountryDescription = () => {
   const { name } = useParams();
   const navigate = useNavigate();
   const [info, setInfo] = useState<Array<ICountry> | null>(null);
+  const [isLoad, setIsLoad] = useState(false);
 
   useEffect(() => {
+    setIsLoad(false);
     const url = `https://restcountries.com/v3.1/name/${name}`;
     fetch(url)
-      .then((res) => {
-        return res.json();
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Ошибка запроса');
+        }
+        return response.json();
       })
       .then((data) => {
         console.log(data);
         setInfo(data);
-      });
-    //TODO: add catch error
+      })
+      .catch((error) => {
+        alert(error);
+      })
+      .finally(() => setIsLoad(true));
   }, [name]);
   console.log(info);
 
   return (
     <div>
       <p>CountryDescription</p>
-      <p>{JSON.stringify(info, null, 4)}</p>
+      <pre>{isLoad ? JSON.stringify(info, null, 4) : 'Loading...'}</pre>
     </div>
   );
 };
