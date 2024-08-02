@@ -1,16 +1,15 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import { AppContent } from './components/app-content/app-content';
 import { NotFoundPage } from './pages/not-found-page';
-import { CountryDescription } from './components/country-description/country-description';
+import { MainPage } from './pages/main-page';
+import { SinglePage } from './pages/single-page';
 
 function App() {
-  // return <AppContent />;
   return (
     <Routes>
-      <Route path='/' index element={<AppContent />}></Route>
-      <Route path='/name/:name' element={<CountryDescription />} />
-      <Route path='*' element={<NotFoundPage />}></Route>
+      <Route path='/' index element={<MainPage />} />
+      <Route path='/name/:name' element={<SinglePage />} />
+      <Route path='*' element={<NotFoundPage />} />
     </Routes>
   );
 }

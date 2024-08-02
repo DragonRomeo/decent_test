@@ -1,5 +1,9 @@
-import React from 'react';
+import { CountryDescription } from '../components/country-description/country-description';
 
 export const SinglePage = () => {
-  return <div>single-page</div>;
+  return (
+    <div>
+      <CountryDescription />
+    </div>
+  );
 };

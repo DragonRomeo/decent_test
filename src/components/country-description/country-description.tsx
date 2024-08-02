@@ -1,9 +1,8 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 export const CountryDescription = () => {
   const { name } = useParams();
-  const navigate = useNavigate();
   const [info, setInfo] = useState<Array<ICountry> | null>(null);
   const [isLoad, setIsLoad] = useState(false);
 

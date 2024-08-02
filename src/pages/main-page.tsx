@@ -1,7 +1,9 @@
-import React from 'react'
+import { AppContent } from '../components/app-content/app-content';
 
 export const MainPage = () => {
   return (
-    <div>main-page</div>
-  )
-}
+    <div>
+      <AppContent />
+    </div>
+  );
+};
