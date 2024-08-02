@@ -1,13 +1,8 @@
-import { useEffect } from 'react';
 import './App.css';
-import { getData } from './api/api';
+import { AppContent } from './components/app-content/app-content';
 
 function App() {
-  useEffect(() => {
-    console.log(getData());
-  });
-
-  return <></>;
+  return <AppContent />;
 }
 
 export default App;
