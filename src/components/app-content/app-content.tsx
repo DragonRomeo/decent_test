@@ -2,7 +2,7 @@ import { CountryContainer } from '../country-container/country-container';
 import { DataContext } from '../../context/context';
 import { useEffect, useState } from 'react';
 
-const url = 'https://restcountries.com/v3.1/all';
+const url = 'https://restcountries.com/v3.1/all?fields=name,capital,flag,flags';
 
 export const AppContent = () => {
   const [countries, setCountries] = useState<Array<ICountry> | null>(null);
