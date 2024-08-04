@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { Loader } from '../Loader/loader';
+import { Loader } from '../loader/loader';
 import { Typography } from '@mui/material';
 
 export const CountryDescription = () => {

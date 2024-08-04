@@ -1,7 +1,7 @@
 import { Container, Grid, Typography } from '@mui/material';
 import { useDataContext } from '../../context/context';
 import { CountryItem } from '../country-item/country-item';
-import { Loader } from '../Loader/loader';
+import { Loader } from '../loader/loader';
 
 export const CountryContainer = () => {
   const { countries, error, isLoad } = useDataContext();
