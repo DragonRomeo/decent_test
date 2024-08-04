@@ -1,5 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { Loader } from '../Loader/loader';
+import { Typography } from '@mui/material';
 
 export const CountryDescription = () => {
   const { name } = useParams();
@@ -28,9 +30,21 @@ export const CountryDescription = () => {
   console.log(info);
 
   return (
-    <div>
-      <p>CountryDescription</p>
-      <pre>{isLoad ? JSON.stringify(info, null, 4) : 'Loading...'}</pre>
-    </div>
+    <>
+      <Typography variant='h5'>Country Page</Typography>
+      {isLoad ? (
+        <pre
+          style={{
+            fontFamily: 'inherit',
+            fontSize: '15px',
+            textAlign: 'center',
+          }}
+        >
+          {JSON.stringify(info, null, 4)}
+        </pre>
+      ) : (
+        <Loader />
+      )}
+    </>
   );
 };

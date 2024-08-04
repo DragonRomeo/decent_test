@@ -1,22 +1,37 @@
+import { Container, Grid, Typography } from '@mui/material';
 import { useDataContext } from '../../context/context';
 import { CountryItem } from '../country-item/country-item';
-import style from './country-container.module.scss';
+import { Loader } from '../Loader/loader';
 
 export const CountryContainer = () => {
   const { countries, error, isLoad } = useDataContext();
   console.log(error);
 
   return (
-    <div className={style.container}>
-      <p>{error && error.message}</p>
-      {isLoad ? (
-        countries &&
-        countries.map((country: ICountry, index) => (
-          <CountryItem key={index} country={country}></CountryItem>
-        ))
-      ) : (
-        <p className='status'>Loading...</p>
-      )}
-    </div>
+    <>
+      <Container maxWidth='lg'>
+        <Typography variant='h4' align='center'>
+          Countries
+        </Typography>
+        <Grid container spacing={5} style={{ marginTop: '20px' }}>
+          {isLoad ? (
+            countries &&
+            countries.map((country: ICountry, index) => (
+              <Grid
+                item
+                xs={12}
+                sm={4}
+                style={{ marginTop: '20px' }}
+                key={index}
+              >
+                <CountryItem country={country} />
+              </Grid>
+            ))
+          ) : (
+            <Loader />
+          )}
+        </Grid>
+      </Container>
+    </>
   );
 };

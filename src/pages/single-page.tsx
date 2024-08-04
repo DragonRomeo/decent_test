@@ -1,9 +1,18 @@
+import { Container } from '@mui/material';
 import { CountryDescription } from '../components/country-description/country-description';
 
 export const SinglePage = () => {
   return (
-    <div>
+    <Container
+      maxWidth='lg'
+      style={{
+        overflowX: 'scroll',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}
+    >
       <CountryDescription />
-    </div>
+    </Container>
   );
 };
