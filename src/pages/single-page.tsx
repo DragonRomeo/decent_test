@@ -6,7 +6,7 @@ export const SinglePage = () => {
     <Container
       maxWidth='lg'
       style={{
-        overflowX: 'scroll',
+        overflowX: 'auto',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',

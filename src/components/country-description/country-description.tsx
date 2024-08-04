@@ -40,7 +40,7 @@ export const CountryDescription = () => {
             textAlign: 'center',
           }}
         >
-          {JSON.stringify(info, null, 4)}
+          {info && JSON.stringify(info, null, 4)}
         </pre>
       ) : (
         <Loader />

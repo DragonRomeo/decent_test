@@ -2,7 +2,7 @@ import { CountryContainer } from '../country-container/country-container';
 import { DataContext } from '../../context/context';
 import { useEffect, useState } from 'react';
 
-const url = 'https://restcountries.com/v3.1/all?fields=name,capital,flag,flags';
+const url = 'https://restcountries.com/v3.1/all';
 
 export const AppContent = () => {
   const [countries, setCountries] = useState<Array<ICountry> | null>(null);
@@ -16,6 +16,7 @@ export const AppContent = () => {
         if (!response.ok) {
           throw new Error('Ошибка запроса');
         }
+        setError(null);
         return response.json();
       })
       .then((result) => {

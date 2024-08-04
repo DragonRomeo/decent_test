@@ -5,14 +5,17 @@ import { Loader } from '../Loader/loader';
 
 export const CountryContainer = () => {
   const { countries, error, isLoad } = useDataContext();
-  console.log(error);
-
   return (
     <>
       <Container maxWidth='lg'>
-        <Typography variant='h4' align='center'>
+        <Typography variant='h4' align='center' style={{ marginTop: '20px' }}>
           Countries
         </Typography>
+        {error && (
+          <Typography variant='h5' align='center'>
+            {error?.message}
+          </Typography>
+        )}
         <Grid container spacing={5} style={{ marginTop: '20px' }}>
           {isLoad ? (
             countries &&
